@@ -24,6 +24,10 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
-#tasklist::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
