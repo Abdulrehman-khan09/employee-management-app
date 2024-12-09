@@ -23,6 +23,17 @@ const App = () => {
   //   }
   // }, [authData])
 
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser", "")
+    if (loggedInUser) {
+
+      console.log("user logged in");
+    }
+
+
+  }, [])
+
   const handleLogin = (email, password) => {
     if (authData && authData.admin.find((e) => email == e.email && password == e.password)) {
       setUser("admin");
