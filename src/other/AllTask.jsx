@@ -1,32 +1,34 @@
-import React from 'react'
+/* eslint-disable react/jsx-key */
+import React, { useContext } from 'react'
+import { AuthContext } from '../context/AuthProvider'
 
 const AllTask = () => {
+
+    const authData = useContext(AuthContext)
+    // console.log(authData);
+
     return (
-        <div className='bg-[#1c1c1c] rounded h-56 overflow-auto p-5 mt-5'>
-            <div className='bg-red-400 mb-2 py-2 px-4 flex justify-between rounded-lg'>
-                <h2>Kaustubh</h2>
-                <h3>Make a UI design</h3>
-                <h5>Status</h5>
+        <div className='bg-[#1c1c1c] rounded h-72  p-5 mt-5'>
+
+            <div className='bg-purple-900 mb-2 py-2 px-4 flex justify-between rounded-lg'>
+                <h2 className='w-1/5'>Employee Name</h2>
+                <h3 className='w-1/5'>New Task</h3>
+                <h5 className='w-1/5'>Active Task</h5>
+                <h5 className='w-1/5'>Completed</h5>
+                <h5 className='w-1/5'>Failed</h5>
             </div>
-            <div className='bg-yellow-400 mb-2 py-2 px-4 flex justify-between rounded-lg'>
-                <h2>Kaustubh</h2>
-                <h3>Make a UI design</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-blue-400 mb-2 py-2 px-4 flex justify-between rounded-lg'>
-                <h2>Kaustubh</h2>
-                <h3>Make a UI design</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-green-400 mb-2 py-2 px-4 flex justify-between rounded-lg'>
-                <h2>Kaustubh</h2>
-                <h3>Make a UI design</h3>
-                <h5>Status</h5>
-            </div>
-            <div className='bg-purple-400 mb-2 py-2 px-4 flex justify-between rounded-lg'>
-                <h2>Kaustubh</h2>
-                <h3>Make a UI design</h3>
-                <h5>Status</h5>
+            <div className='overflow-auto h-[80%]'>
+                {authData.employees.map((element) => {
+
+                    return (<div className='bg-purple-500 mb-2 py-2 px-4 flex justify-between rounded-lg'>
+                        <h2 className='w-1/5'><span className=' p-1 rounded-md'>{element.firstName}</span></h2>
+                        <h3 className=' w-1/5'><span className='bg-sky-600  p-1 rounded-md'>Task</span></h3>
+                        <h5 className='w-1/5'><span className='bg-yellow-400  text-black p-1 rounded-md'>Status</span></h5>
+                        <h5 className='w-1/5'><span className='bg-green-600 p-1 rounded-md'>Status</span></h5>
+                        <h5 className='w-1/5'><span className='bg-red-500 p-1 rounded-md'>Failed</span></h5>
+                    </div>)
+
+                })}
             </div>
         </div>
     )
