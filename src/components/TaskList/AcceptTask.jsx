@@ -9,7 +9,7 @@ const AcceptTask = ({ element }) => {
 
         <div className='flex-shrink-0 h-full w-[325px] p-5 bg-red-400 rounded-xl'>
             <div className='flex justify-between items-center'>
-                <h3 className='px-3 py-1 bg-red-500 rounded-lg'>High</h3>
+                <h3 className='px-3 py-1 bg-red-500 rounded-lg'>{element.category}</h3>
                 <h4>{element.taskDate}</h4>
             </div>
 
