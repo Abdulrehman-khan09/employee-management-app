@@ -20,6 +20,18 @@ const TaskList = ({ data }) => {
                 if (element.active) {
                     return <AcceptTask element={element} />
                 }
+
+                if (element.newTask) {
+                    return <NewTask element={element} />
+                }
+
+                if (element.completed) {
+                    return <CompleteTask element={element} />
+                }
+
+                if (element.failed) {
+                    return <FailedTask element={element} />
+                }
             })}
         </div>
     )

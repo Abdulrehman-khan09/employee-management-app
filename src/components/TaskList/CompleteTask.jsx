@@ -1,16 +1,18 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react'
 
-const CompleteTask = () => {
+const CompleteTask = ({ element }) => {
     return (
         <div className='h-full flex-shrink-0 rounded-2xl p-5 w-[300px] bg-green-400'>
             <div className='flex justify-between items-center'>
                 <h3 className='px-3 py-1 bg-red-500 rounded-lg'>High</h3>
-                <h4>24 Nov 2024</h4>
+                <h4>{element.taskDate}</h4>
             </div>
-            <h2 className='mt-5 text-xl font-semibold'>Make a youtube video</h2>
-            <p className='mt-2 text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, corrupti quisquam dolorem sint commodi veritatis.</p>
+            <h2 className='mt-5 text-xl font-semibold'>{element.taskTitle}</h2>
+            <p className='mt-2 text-sm'>{element.taskDescription}</p>
             <div className='mt-5'>
-                <button className='w-full'>Complete</button>
+                <button className='bg-green-500 rounded-lg py-1 px-2 w-full'>Complete</button>
             </div>
         </div>
     )
