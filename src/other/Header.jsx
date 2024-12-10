@@ -11,11 +11,14 @@ const Header = ({ changeUser }) => {
     // } else {
     //     setUsername(data.firstName)
     // }
-    console.log(changeUser);
+
+
+    // console.log(changeUser);
 
     const logOutUser = () => {
         localStorage.setItem("loggedInUser", "")
         // location.reload();
+        changeUser("")
     }
 
     return (
