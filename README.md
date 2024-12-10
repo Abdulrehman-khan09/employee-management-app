@@ -1,5 +1,5 @@
-# Project Title
-A task management web application that supports role-based login (admin and employee) and provides features like task creation, updating, marking as completed/failed, and viewing task statistics.
+# StaffZen
+An employee task management web application that supports role-based login (admin and employee) and provides features like task creation, updating, marking as completed/failed, and viewing task statistics.
 
 ## Installation
 1. Clone the repository:
