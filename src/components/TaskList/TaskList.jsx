@@ -1,39 +1,36 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import AcceptTask from './AcceptTask'
 import NewTask from './NewTask'
 import CompleteTask from './CompleteTask'
 import FailedTask from './FailedTask'
+import { AuthContext } from '../../context/AuthProvider'
 
 const TaskList = ({ data }) => {
-    // console.log(data);
+  const [userData, setUserData] = useContext(AuthContext)
 
-    return (
-        <div id='tasklist' className='h-[50%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-1 mt-16'>
-            {/* <AcceptTask />
-            <NewTask />
-            <CompleteTask />
-            <FailedTask /> */}
-            {data.tasks.map((element, id) => {
-                if (element.active) {
-                    return <AcceptTask element={element} key={id} />
-                }
+  useEffect(() => {
+    const storedEmployees = JSON.parse(localStorage.getItem('employees'))
+    if (storedEmployees && JSON.stringify(storedEmployees) !== JSON.stringify(userData)) {
+      setUserData(storedEmployees)
+    }
+  }, [userData, setUserData])
 
-                if (element.newTask) {
-                    return <NewTask element={element} key={id} />
-                }
+  const renderTask = (task, id) => {
+    if (task.active) return <AcceptTask element={task} key={id} />
+    if (task.newTask) return <NewTask element={task} key={id} />
+    if (task.completed) return <CompleteTask element={task} key={id} />
+    if (task.failed) return <FailedTask element={task} key={id} />
+    return null
+  }
 
-                if (element.completed) {
-                    return <CompleteTask element={element} key={id} />
-                }
-
-                if (element.failed) {
-                    return <FailedTask element={element} key={id} />
-                }
-            })}
-        </div>
-    )
+  return (
+    <div className='bg-[#1e1e1e] p-6 rounded-xl shadow-md shadow-black/10 mt-6'>
+      <h2 className='text-xl font-bold text-gray-100 mb-6'>Your Tasks</h2>
+      <div id='tasklist' className='flex items-center gap-6 overflow-x-auto pb-4'>
+        {data?.tasks?.map((task, id) => renderTask(task, id))}
+      </div>
+    </div>
+  )
 }
 
 export default TaskList
