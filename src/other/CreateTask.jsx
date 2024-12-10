@@ -35,13 +35,10 @@ const CreateTask = () => {
         // console.log(data);
 
         data.forEach((element) => {
-            // console.log(element.firstName);
+
 
             if (assignTo == element.firstName) {
-                // console.log(element.tasks);
-
                 element.tasks.push(newTask)
-                // console.log(element.tasks);
                 element.taskCounts.newTask = element.taskCounts.newTask + 1
             }
         });
