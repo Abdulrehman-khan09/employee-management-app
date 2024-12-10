@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/42a68780-2d58-408d-b71f-2951ca3f884c)# StaffZen
+# StaffZen
 An employee task management web application that supports role-based login (admin and employee) and provides features like task creation, updating, marking as completed/failed, and viewing task statistics.
 
 ## User Login Credentials
