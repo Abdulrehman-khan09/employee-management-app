@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import Login from '../components/Auth/Login'
 
-const Header = () => {
+const Header = ({ changeUser }) => {
     // const [username, setUsername] = useState("")
     // // console.log(data);
     // if (!data) {
@@ -11,11 +11,11 @@ const Header = () => {
     // } else {
     //     setUsername(data.firstName)
     // }
+    console.log(changeUser);
 
     const logOutUser = () => {
         localStorage.setItem("loggedInUser", "")
-        location.reload();
-
+        // location.reload();
     }
 
     return (

@@ -1,5 +1,6 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
+/* eslint-disable no-unused-vars */
+
 import React, { useContext } from 'react'
 import { AuthContext } from '../context/AuthProvider'
 
@@ -21,13 +22,15 @@ const AllTask = () => {
             <div className='overflow-auto h-[80%]'>
                 {authData.employees.map((element) => {
 
-                    <div className='bg-sky-600 mb-2 py-2 px-4 flex justify-between rounded-lg'>
+                    return (<div
+                        key={element.id}
+                        className='bg-sky-600 mb-2 py-2 px-4 flex justify-between rounded-lg'>
                         <h2 className='w-1/5'>{element.firstName}</h2>
                         <h3 className=' w-1/5'>{element.taskCounts.newTask}</h3>
                         <h5 className='w-1/5'>{element.taskCounts.active}</h5>
                         <h5 className='w-1/5'>{element.taskCounts.completed}</h5>
                         <h5 className='w-1/5'>{element.taskCounts.failed}</h5>
-                    </div>
+                    </div>);
 
                 })}
             </div>
