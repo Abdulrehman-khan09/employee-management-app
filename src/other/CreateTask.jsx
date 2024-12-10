@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../context/AuthProvider'
 
 const CreateTask = () => {
     const [taskTitle, setTaskTitle] = useState("")
@@ -8,10 +9,46 @@ const CreateTask = () => {
     const [assignTo, setAssignTo] = useState("")
     const [category, setCategory] = useState("")
 
+    const [newTask, setNewTask] = useState({})
+
+    const [userData, setUserData] = useContext(AuthContext)
+
+
     const submitHandler = (e) => {
         e.preventDefault()
         // console.log(("task created"));
-        // console.log(taskTitle, taskDate, assignTo, category, taskDescription);
+
+
+        setNewTask({
+            taskTitle,
+            taskDate,
+            category,
+            taskDescription,
+            active: false,
+            newTask: true,
+            failed: false,
+            completed: false
+        });
+
+
+        const data = userData
+        // console.log(data);
+
+        data.forEach((element) => {
+            // console.log(element.firstName);
+
+            if (assignTo == element.firstName) {
+                // console.log(element.tasks);
+
+                element.tasks.push(newTask)
+                // console.log(element.tasks);
+                element.taskCounts.newTask = element.taskCounts.newTask + 1
+            }
+        });
+
+        setUserData(data)
+        console.log(data);
+
         setTaskTitle("")
         setTaskDescription("")
         setTaskDate("")

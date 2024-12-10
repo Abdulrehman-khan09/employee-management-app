@@ -6,8 +6,8 @@ import { AuthContext } from '../context/AuthProvider'
 
 const AllTask = () => {
 
-    const authData = useContext(AuthContext)
-    // console.log(authData);
+    const [userData, setUserData] = useContext(AuthContext)
+    // console.log(userData);
 
     return (
         <div className='bg-[#1c1c1c] rounded h-72  p-5 mt-5'>
@@ -20,7 +20,7 @@ const AllTask = () => {
                 <h5 className='w-1/5'>Failed</h5>
             </div>
             <div className='overflow-auto h-[80%]'>
-                {authData.employees.map((element) => {
+                {userData.map((element) => {
 
                     return (<div
                         key={element.id}
