@@ -7,7 +7,7 @@ Below are the default login credentials to access the application:
 
 ### Admin Login
 - **Email:** admin@example.com
-- **Password:** admin123
+- **Password:** 123
 
 ### Employee Logins
 1. **Employee 1:**
