@@ -1,4 +1,4 @@
-# StaffZen
+# ems-app
 An employee task management web application that supports role-based login (admin and employee) and provides features like task creation, updating, marking as completed/failed, and viewing task statistics.
 
 ## User Login Credentials
@@ -6,7 +6,7 @@ An employee task management web application that supports role-based login (admi
 Below are the default login credentials to access the application:
 
 ### Admin Login
-- **Email:** admin@example.com
+- **Email:** abdul@admin.com
 - **Password:** 123
 
 ### Employee Logins
@@ -29,15 +29,12 @@ and so on....
    ```bash
    git clone https://github.com/kstubhieeee/StaffZen
    ```
-2. Navigate to the project directory:
-   ```bash
-   cd StaffZen
-   ```
-3. Install dependencies:
+
+2. Install dependencies:
    ```bash
    npm install
    ```
-4. Start the development server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
